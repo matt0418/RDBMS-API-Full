@@ -84,7 +84,7 @@ router.delete('/:id', async (req, res) => {
     try {
         const deleted = await db('cohorts').where({ id }).del()
         if (deleted > 0) {
-            res.status(204).end()
+            res.status(204).json({message: "Deleted Cohort"}).end()
         } else {
             res.status(404).json({message: "No Cohort with this ID exists...bad dog"})
         }
